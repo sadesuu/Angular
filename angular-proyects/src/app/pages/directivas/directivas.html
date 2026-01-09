@@ -26,6 +26,21 @@
     } @else {
       <p class="info">{{ usuario.nombre }} es menor de edad</p>
     }
+
+    <h3>Ejemplo con Superheroes:</h3>
+
+    <div class="button-group">
+        <button (click)="cambiarHeroe('Spiderman')">Spiderman</button>
+        <button (click)="cambiarHeroe('Batman')">Batman</button>
+    </div>
+
+    @if (heroes === 'Spiderman') {
+      <p>🕷️ Hola, soy {{ spiderman.nombre }} y mi poder es {{ spiderman.poder }}</p>
+    } @else if (heroes === 'Batman') {
+      <p>🦇 Hola, soy {{ batman.nombre }} y mi poder es {{ batman.poder }}</p>
+    } @else {
+      <p>❓ No conozco a este héroe</p>
+    }
   </section>
 
   <!-- ========== EJEMPLO @for ========== -->
@@ -33,11 +48,11 @@
     <h2>2. Directiva @ for</h2>
     <p>Itera sobre arrays para crear elementos dinámicamente.</p>
 
-    <h3>Lista simple de frutas:</h3>
+    <h3>Lista de palabras para nada planeadas:</h3>
     <ul>
-      @for (fruta of frutas; track fruta) {
-        <li>🍎 {{ fruta }}</li>
-      }
+        @for(palabra of palabras; track palabras){
+            <li>{{ palabra }}</li>
+        }
     </ul>
 
     <h3>Lista con índice:</h3>
@@ -55,8 +70,9 @@
           <p>Rol: {{ user.rol }}</p>
           <small>
             @if (first) { <span class="badge">Primero</span> }
-            @if (last) { <span class="badge">Último</span> }
             @if (even) { <span class="badge">Par</span> }
+            @if (last) { <span class="badge">Último</span> }
+        
           </small>
         </div>
       }

@@ -10,9 +10,12 @@ export class Directivas {
   // Ejemplo @if
   mostrarMensaje = false;
   usuario = { nombre: 'Hugo', edad: 21 };
-
+  spiderman = { nombre: 'Spiderman', poder: 'telaraña' };
+  batman = { nombre: 'Batman', poder: 'tecnología' };
+  heroes: 'Spiderman' | 'Batman' = 'Spiderman';
   // Ejemplo @for
-  frutas = ['Manzana', 'Banana', 'Naranja', 'Fresa', 'Uva'];
+  palabras = ['Casimiro', 'Apruebame', 'Porfa', 'Te lo pido', 'Hugo'];
+  frutas = ['Manzana', 'Banana', 'Naranja', 'Mango', 'Pera'];
   usuarios = [
     { id: 1, nombre: 'Ana', rol: 'Admin' },
     { id: 2, nombre: 'Luis', rol: 'Usuario' },
@@ -33,5 +36,9 @@ export class Directivas {
 
   cambiarEstadoPedido(estado: 'pendiente' | 'procesando' | 'enviado' | 'entregado') {
     this.estadoPedido = estado;
+  }
+
+  cambiarHeroe(heroe: 'Spiderman' | 'Batman') {
+    this.heroes = heroe;
   }
 }
