@@ -4,7 +4,7 @@ import { Hijo } from './hijo/hijo/hijo';
 
 @Component({
   selector: 'app-comunicacion',
-  imports: [Padre, Hijo],
+  imports: [Padre],
   templateUrl: './comunicacion.html',
   styleUrl: './comunicacion.css',
 })

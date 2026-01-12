@@ -8,10 +8,13 @@ import { Servicios } from './pages/servicios/servicios';
 import { HttpClient } from './pages/http-client/http-client';
 
 export const routes: Routes = [
-
+    {
+        path: '',
+        component: Inicio
+    },
     {
         path: 'inicio',
-        component: DataBinding
+        component: Inicio
     },
     {
         path: 'data-binding',
