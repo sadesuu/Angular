@@ -2,6 +2,7 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  height: 100vh;
 }
 
 h1 {
@@ -105,6 +106,85 @@ button:hover {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin: 1rem 0;
+}
+
+/* Tabla */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+table thead tr th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+table tbody tr:hover {
+  background: #f8f9ff;
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15);
+}
+
+table tbody tr:last-child {
+  border-bottom: none;
+}
+
+table tbody tr td {
+  padding: 1rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+table tbody tr td:first-child {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.activo {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}
+
+.badge.inactivo {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(245, 87, 108, 0.3);
+}
+
+.badge.desconocido {
+  background: linear-gradient(135deg, #a8a8a8 0%, #696969 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(168, 168, 168, 0.3);
 }
 
 /* Listas */

@@ -49,12 +49,36 @@
     <p>Itera sobre arrays para crear elementos dinámicamente.</p>
 
     <h3>Lista de palabras para nada planeadas:</h3>
-    <ul>
-        @for(palabra of palabras; track palabras){
-            <li>{{ palabra }}</li>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Puesto</th>
+          <th>Cantidad</th>
+          <th>Estado</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(alumno of alumnos; track alumno.id) {
+          <tr>
+            <td>{{ alumno.nombre }}</td>
+            <td>{{ alumno.puesto }}</td>
+            <td>{{ alumno.cantidad }}</td>
+            <td>
+              @if (alumno.estado === 'activo') {
+                <span class="badge activo">Activo</span>
+              } @else if (alumno.estado === 'inactivo') {
+                <span class="badge inactivo">Inactivo</span>
+              } @else {
+                <span class="badge desconocido">Desconocido</span>
+              }
+            </td>
+            <td>{{ alumno.fecha }}</td>
+          </tr>
         }
-    </ul>
-
+      </tbody>
+    </table>
     <h3>Lista con índice:</h3>
     <ol>
       @for (fruta of frutas; track fruta; let i = $index) {
