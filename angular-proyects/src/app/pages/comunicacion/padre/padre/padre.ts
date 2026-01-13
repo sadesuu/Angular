@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Hijo } from '../../hijo/hijo/hijo';
+import { Store } from '../../store';
 
 @Component({
   selector: 'app-padre',
@@ -15,5 +16,11 @@ export class Padre {
 
   recibirMensaje(mensaje: string) {
     this.mensajeDelHijo = mensaje;
+  }
+
+  constructor(private store: Store){}
+
+  enviarAlStore(){
+    this.store.setMensaje('Mensaje desde el Padre')
   }
 }
