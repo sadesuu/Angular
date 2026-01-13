@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Padre } from './padre/padre/padre';
 import { Hijo } from './hijo/hijo/hijo';
+import { Store } from './store';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { AlumnosService } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-comunicacion',
@@ -9,5 +13,28 @@ import { Hijo } from './hijo/hijo/hijo';
   styleUrl: './comunicacion.css',
 })
 export class Comunicacion {
+
+  alumnos: any[] = [];
+
+  constructor(
+    public store: Store, 
+    private router: Router,
+    private route: ActivatedRoute,
+    private alumnosService: AlumnosService
+  ) {
+    this.alumnos = this.alumnosService.getAlumnos();
+  }
+
+  enviarAlStorePadre() {
+    this.store.setMensajePadre('Mensaje desde el Padre');
+  }
+
+  enviarAlStoreHijo() {
+    this.store.setMensajeHijo('Mensaje desde el Hijo');
+  }
+
+  verDetalle(alumno: any){
+    this.router.navigate(['/detalle', alumno.id]);
+  }
 
 }

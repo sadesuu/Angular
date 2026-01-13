@@ -1,1 +1,58 @@
-<p>detalle works!</p>
+<div class="detalle-container">
+  <div class="header-section">
+    <button class="btn-volver" (click)="volver()">
+      <span>←</span> Volver
+    </button>
+    <h1>Detalle de Persona</h1>
+  </div>
+
+  <div *ngIf="alumno" class="card-detalle">
+    <div class="card-header">
+      <div class="avatar">{{ alumno.nombre.charAt(0) }}</div>
+      <div class="header-info">
+        <h2>{{ alumno.nombre }}</h2>
+        <p class="subtitle">{{ alumno.puesto }}</p>
+      </div>
+      <span 
+        class="badge"
+        [ngClass]="{
+          'activo': alumno.estado === 'activo',
+          'inactivo': alumno.estado === 'inactivo',
+          'desconocido': alumno.estado !== 'activo' && alumno.estado !== 'inactivo'
+        }">
+        {{ alumno.estado }}
+      </span>
+    </div>
+
+    <div class="card-body">
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="label">ID</span>
+          <span class="value">{{ alumno.id }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Puesto</span>
+          <span class="value">{{ alumno.puesto }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Cantidad</span>
+          <span class="value">{{ alumno.cantidad }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Estado</span>
+          <span class="value">{{ alumno.estado }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Fecha de Inicio</span>
+          <span class="value">{{ alumno.fecha }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!alumno" class="error-message">
+    <h2>⚠️ Persona no encontrada</h2>
+    <p>No se encontró información para el ID especificado.</p>
+    <button class="btn-volver" (click)="volver()">Volver a la lista</button>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Input, Output, EventEmitter } from '@angular/core';
+import { Store } from '../../store';
 
 @Component({
   selector: 'app-hijo',
@@ -19,4 +20,10 @@ export class Hijo {
     // Emitir el evento con el mensaje
     this.mensajeEmitido.emit(mensaje);
   }
+  constructor(private store: Store) {}
+
+  mostrarDesdeStoreHijo(nuevoMensaje: string){
+    this.store.setMensajeHijo(nuevoMensaje);
+  }
+  
 }

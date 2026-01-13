@@ -20,7 +20,7 @@ export class Padre {
 
   constructor(private store: Store){}
 
-  enviarAlStore(){
-    this.store.setMensaje('Mensaje desde el Padre')
+  enviarAlStorePadre(){
+    this.store.setMensajePadre('Mensaje desde el Padre')
   }
 }
