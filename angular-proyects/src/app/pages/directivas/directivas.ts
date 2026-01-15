@@ -1,6 +1,7 @@
 import { FetchBackend } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { AlumnosService, Pokemon } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-directivas',
@@ -15,41 +16,13 @@ export class Directivas {
   spiderman = { nombre: 'Spiderman', poder: 'telaraña' };
   batman = { nombre: 'Batman', poder: 'tecnología' };
   heroes: 'Spiderman' | 'Batman' = 'Spiderman';
-  // Ejemplo @for
-  alumnos:any[] = [
-  {
-    id: 1,
-    nombre: 'Hugo',
-    puesto: 'Desarrollador',
-    cantidad: 3,
-    estado: 'activo', 
-    fecha: '2024-06-15',
-  },
-  {
-    id: 2,
-    nombre: 'Ana',
-    puesto: 'Diseñadora',
-    cantidad: 5,
-    estado: 'inactivo', 
-    fecha: '2024-05-20',
-  },
-  {
-    id: 3,
-    nombre: 'Luis',
-    puesto: 'Tester',
-    cantidad: 2,
-    estado: 'activo', 
-    fecha: '2024-04-10',
-  },
-  {
-    id: 4,
-    nombre: 'María',
-    puesto: 'Project Manager',
-    cantidad: 4,
-    estado: 'pendiente', 
-    fecha: '2024-03-25',
-  },
-   ];
+  // Ejemplo @for - Lista de Pokémons
+  alumnos: Pokemon[] = [];
+
+  constructor(private alumnosService: AlumnosService) {
+    this.alumnos = this.alumnosService.getPokemons();
+  }
+
   frutas = ['Manzana', 'Banana', 'Naranja', 'Mango', 'Pera'];
   usuarios = [
     { id: 1, nombre: 'Ana', rol: 'Admin' },

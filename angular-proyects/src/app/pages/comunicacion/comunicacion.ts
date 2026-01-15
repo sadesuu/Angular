@@ -4,7 +4,7 @@ import { Hijo } from './hijo/hijo/hijo';
 import { Store } from './store';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { AlumnosService } from '../../services/alumnos.service';
+import { AlumnosService, Pokemon } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-comunicacion',
@@ -14,7 +14,7 @@ import { AlumnosService } from '../../services/alumnos.service';
 })
 export class Comunicacion {
 
-  alumnos: any[] = [];
+  alumnos: Pokemon[] = [];
 
   constructor(
     public store: Store, 

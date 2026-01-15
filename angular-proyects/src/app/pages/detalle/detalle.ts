@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { AlumnosService } from '../../services/alumnos.service';
+import { AlumnosService, Pokemon } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-detalle',
@@ -10,7 +10,7 @@ import { AlumnosService } from '../../services/alumnos.service';
   styleUrl: './detalle.css',
 })
 export class Detalle implements OnInit {
-  alumno: any = null;
+  alumno: Pokemon | undefined = undefined;
 
   constructor(
     private route: ActivatedRoute,

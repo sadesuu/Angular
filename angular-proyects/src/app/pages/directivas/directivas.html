@@ -48,33 +48,41 @@
     <h2>2. Directiva @ for</h2>
     <p>Itera sobre arrays para crear elementos dinámicamente.</p>
 
-    <h3>Lista de palabras para nada planeadas:</h3>
+    <h3>Lista de Pokémons:</h3>
     <table>
       <thead>
         <tr>
+          <th>Foto</th>
+          <th>ID</th>
           <th>Nombre</th>
-          <th>Puesto</th>
-          <th>Cantidad</th>
-          <th>Estado</th>
-          <th>Fecha</th>
+          <th>Tipo(s)</th>
+          <th>Habilidades</th>
+          <th>Altura (m)</th>
+          <th>Peso (kg)</th>
         </tr>
       </thead>
       <tbody>
         @for(alumno of alumnos; track alumno.id) {
           <tr>
-            <td>{{ alumno.nombre }}</td>
-            <td>{{ alumno.puesto }}</td>
-            <td>{{ alumno.cantidad }}</td>
             <td>
-              @if (alumno.estado === 'activo') {
-                <span class="badge activo">Activo</span>
-              } @else if (alumno.estado === 'inactivo') {
-                <span class="badge inactivo">Inactivo</span>
-              } @else {
-                <span class="badge desconocido">Desconocido</span>
+              <img [src]="alumno.foto" [alt]="alumno.nombre" class="pokemon-img">
+            </td>
+            <td>{{ alumno.id }}</td>
+            <td><strong>{{ alumno.nombre }}</strong></td>
+            <td>
+              @for(tipo of alumno.tipos; track tipo) {
+                <span class="badge tipo">{{ tipo }}</span>
               }
             </td>
-            <td>{{ alumno.fecha }}</td>
+            <td>
+              <div class="habilidades-list">
+                @for(habilidad of alumno.habilidades; track habilidad) {
+                  <span class="habilidad-item">{{ habilidad }}</span>
+                }
+              </div>
+            </td>
+            <td>{{ alumno.altura }} m</td>
+            <td>{{ alumno.peso }} kg</td>
           </tr>
         }
       </tbody>

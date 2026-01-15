@@ -41,30 +41,30 @@
       <table>
         <thead>
           <tr>
+            <th>ID</th>
             <th>Nombre</th>
-            <th>Puesto</th>
-            <th>Cantidad</th>
-            <th>Estado</th>
-            <th>Fecha</th>
+            <th>Tipo(s)</th>
+            <th>Habilidades</th>
+            <th>Altura</th>
+            <th>Peso</th>
             <th>Detalle</th>
           </tr>
         </thead>
         <tbody>
           @for(alumno of alumnos; track alumno.id) {
           <tr>
-            <td>{{ alumno.nombre }}</td>
-            <td>{{ alumno.puesto }}</td>
-            <td>{{ alumno.cantidad }}</td>
+            <td>{{ alumno.id }}</td>
+            <td><strong>{{ alumno.nombre }}</strong></td>
             <td>
-              @if (alumno.estado === 'activo') {
-              <span class="badge activo">Activo</span>
-              } @else if (alumno.estado === 'inactivo') {
-              <span class="badge inactivo">Inactivo</span>
-              } @else {
-              <span class="badge desconocido">Desconocido</span>
+              @for(tipo of alumno.tipos; track tipo) {
+                <span class="badge tipo">{{ tipo }}</span>
               }
             </td>
-            <td>{{ alumno.fecha }}</td>
+            <td>
+              <span class="habilidades-count">{{ alumno.habilidades.length }} habilidades</span>
+            </td>
+            <td>{{ alumno.altura }} m</td>
+            <td>{{ alumno.peso }} kg</td>
             <td>
               <button class="btn-ver-mas" (click)="verDetalle(alumno)">Ver más</button>
             </td>

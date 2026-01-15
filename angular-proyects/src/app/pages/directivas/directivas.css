@@ -167,6 +167,7 @@ table tbody tr td:first-child {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  margin: 0.2rem;
 }
 
 .badge.activo {
@@ -185,6 +186,29 @@ table tbody tr td:first-child {
   background: linear-gradient(135deg, #a8a8a8 0%, #696969 100%);
   color: white;
   box-shadow: 0 2px 8px rgba(168, 168, 168, 0.3);
+}
+
+.badge.tipo {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(79, 172, 254, 0.3);
+  font-size: 0.7rem;
+}
+
+/* Estilos para Pokémons */
+.habilidades-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.habilidad-item {
+  background: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  color: #555;
+  border: 1px solid #ddd;
 }
 
 /* Listas */
@@ -313,4 +337,15 @@ li {
 
 .info {
   color: #17a2b8;
+}
+/* Estilos para imágenes de Pokémon */
+.pokemon-img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.pokemon-img:hover {
+  transform: scale(1.3);
 }

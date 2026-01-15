@@ -157,6 +157,7 @@ tbody td {
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: capitalize;
+  margin: 0.2rem;
 }
 
 .badge.activo {
@@ -175,6 +176,25 @@ tbody td {
   background-color: #fff3cd;
   color: #856404;
   border: 1px solid #ffeaa7;
+}
+
+.badge.tipo {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: white;
+  box-shadow: 0 2px 4px rgba(79, 172, 254, 0.3);
+  font-size: 0.75rem;
+  border: none;
+}
+
+/* Estilos para Pokémons */
+.habilidades-count {
+  background: #f0f0f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: #555;
+  border: 1px solid #ddd;
+  display: inline-block;
 }
 
 /* Botón Ver más */

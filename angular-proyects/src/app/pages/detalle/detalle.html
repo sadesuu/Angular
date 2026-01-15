@@ -3,48 +3,55 @@
     <button class="btn-volver" (click)="volver()">
       <span>←</span> Volver
     </button>
-    <h1>Detalle de Persona</h1>
+    <h1>Detalle de Pokémon</h1>
   </div>
 
   <div *ngIf="alumno" class="card-detalle">
     <div class="card-header">
-      <div class="avatar">{{ alumno.nombre.charAt(0) }}</div>
+      <img [src]="alumno.foto" [alt]="alumno.nombre" class="pokemon-avatar">
       <div class="header-info">
         <h2>{{ alumno.nombre }}</h2>
-        <p class="subtitle">{{ alumno.puesto }}</p>
+        <p class="subtitle">
+          <span *ngFor="let tipo of alumno.tipos" class="tipo-badge">
+            {{ tipo }}
+          </span>
+        </p>
       </div>
-      <span 
-        class="badge"
-        [ngClass]="{
-          'activo': alumno.estado === 'activo',
-          'inactivo': alumno.estado === 'inactivo',
-          'desconocido': alumno.estado !== 'activo' && alumno.estado !== 'inactivo'
-        }">
-        {{ alumno.estado }}
-      </span>
+      <span class="id-badge">#{{ alumno.id }}</span>
     </div>
 
     <div class="card-body">
       <div class="info-grid">
         <div class="info-item">
           <span class="label">ID</span>
-          <span class="value">{{ alumno.id }}</span>
+          <span class="value">#{{ alumno.id }}</span>
         </div>
         <div class="info-item">
-          <span class="label">Puesto</span>
-          <span class="value">{{ alumno.puesto }}</span>
+          <span class="label">Altura</span>
+          <span class="value">{{ alumno.altura }} m</span>
         </div>
         <div class="info-item">
-          <span class="label">Cantidad</span>
-          <span class="value">{{ alumno.cantidad }}</span>
+          <span class="label">Peso</span>
+          <span class="value">{{ alumno.peso }} kg</span>
         </div>
-        <div class="info-item">
-          <span class="label">Estado</span>
-          <span class="value">{{ alumno.estado }}</span>
+      </div>
+
+      <div class="section">
+        <h3>Tipos</h3>
+        <div class="tipos-container">
+          <span *ngFor="let tipo of alumno.tipos" class="badge tipo">
+            {{ tipo }}
+          </span>
         </div>
-        <div class="info-item">
-          <span class="label">Fecha de Inicio</span>
-          <span class="value">{{ alumno.fecha }}</span>
+      </div>
+
+      <div class="section">
+        <h3>Habilidades</h3>
+        <div class="habilidades-container">
+          <div *ngFor="let habilidad of alumno.habilidades; let i = index" class="habilidad-card">
+            <span class="habilidad-number">{{ i + 1 }}</span>
+            <span class="habilidad-name">{{ habilidad }}</span>
+          </div>
         </div>
       </div>
     </div>
